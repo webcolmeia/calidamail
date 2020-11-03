@@ -1,0 +1,10 @@
+.containerIframe{
+    margin-top: 20px;
+    padding-bottom: 67vh;
+    position: relative;
+}
+
+.iframeMail{
+    height: 100%;
+    position: absolute;
+}

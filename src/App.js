@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { useLocation } from 'react-router-dom';
+import { CssBaseline, makeStyles, Toolbar } from '@material-ui/core';
+import Header from './Layout/Header';
+import Sidebar from './Layout/Sidebar';
+import Router from './router';
 
-function App() {
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+  },
+  content: {
+    flexGrow: 1,
+    padding: theme.spacing(3),
+  },
+}));
+
+function App(props) {
+
+  const classes = useStyles();
+
+  const location = useLocation();
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={classes.root}>
+      <CssBaseline />
+      {(location.pathname !== '/login' && location.pathname !== '/register') && (<Header />)}
+      {(location.pathname !== '/login' && location.pathname !== '/register') && (<Sidebar />)}
+      <main className={classes.content}>
+        <Toolbar />
+        <Router />
+      </main>
     </div>
   );
 }
