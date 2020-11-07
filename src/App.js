@@ -27,7 +27,7 @@ function App(props) {
       {(location.pathname !== '/login' && location.pathname !== '/register') && (<Header />)}
       {(location.pathname !== '/login' && location.pathname !== '/register') && (<Sidebar />)}
       <main className={classes.content}>
-        <Toolbar />
+        {(location.pathname !== '/login' && location.pathname !== '/register') && (<Toolbar />)}
         <Router />
       </main>
     </div>
